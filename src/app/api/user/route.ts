@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import {
   createUser,
   deleteUser,
@@ -52,8 +51,14 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const body = await req.json();
-
-  const user = await deleteUser(body.email);
-  return NextResponse.json({ data: user }, { status: 200 });
+  const email = req.nextUrl.searchParams.get("email");
+  if (email) {
+    try {
+       await deleteUser(email);
+      return NextResponse.json({ message: "User deleted successfully!" }, { status: 200 });
+    } catch (error: any) {
+      return NextResponse.json({ error }, { status: 500 });
+    }
+  }
+  return NextResponse.json({ message: "Email Key Missing" }, { status: 400 });
 }
