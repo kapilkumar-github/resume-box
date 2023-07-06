@@ -27,11 +27,12 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  console.log(body)
   // Create a new user
   if (body) {
     try {
-      const user = await createUser(body);
-      return NextResponse.json({ data: user }, { status: 200 });
+      await createUser(body);
+      return NextResponse.json({ data: "User created successfully" }, { status: 200 });
     } catch (error: any) {
       return NextResponse.json({ error }, { status: 500 });
     }
