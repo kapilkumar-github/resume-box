@@ -27,12 +27,14 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  console.log(body)
   // Create a new user
   if (body) {
     try {
       await createUser(body);
-      return NextResponse.json({ data: "User created successfully" }, { status: 200 });
+      return NextResponse.json(
+        { data: "User created successfully" },
+        { status: 200 }
+      );
     } catch (error: any) {
       return NextResponse.json({ error }, { status: 500 });
     }
@@ -55,8 +57,11 @@ export async function DELETE(req: NextRequest) {
   const email = req.nextUrl.searchParams.get("email");
   if (email) {
     try {
-       await deleteUser(email);
-      return NextResponse.json({ message: "User deleted successfully!" }, { status: 200 });
+      await deleteUser(email);
+      return NextResponse.json(
+        { message: "User deleted successfully!" },
+        { status: 200 }
+      );
     } catch (error: any) {
       return NextResponse.json({ error }, { status: 500 });
     }

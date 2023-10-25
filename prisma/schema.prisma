@@ -8,9 +8,77 @@ datasource db {
 }
 
 model User {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  email     String  @unique
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
   firstName String?
   lastName  String?
   password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted   Boolean  @default(false)
+}
+
+type Experience {
+  designation    String
+  companyName    String
+  startDate      DateTime
+  endDate        DateTime?
+  currentCompany Boolean
+  description    String?
+}
+
+type Education {
+  designation    String
+  companyName    String
+  startDate      DateTime
+  endDate        DateTime?
+  currentCompany Boolean
+  description    String?
+}
+
+type ContactEmail {
+  isPrivate Boolean
+  value     String
+}
+
+type ContactPhone {
+  isPrivate Boolean
+  value     String
+  code      String
+}
+
+type Contact {
+  email ContactEmail[]
+  phone ContactPhone[]
+}
+
+type Skill {
+  value String
+  level String
+}
+
+type Social {
+  value String
+  link  String
+}
+
+model Resume {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String       @unique
+  firstName   String?
+  lastName    String?
+  email       String[]     @default([])
+  bio         String?
+  skill       String[]     @default([])
+  contact     Contact?
+  experience  Experience[]
+  education   Education[]
+  social      Social[]
+  interest    String[]     @default([])
+  hobby       String[]     @default([])
+  certificate String[]     @default([])
+  default     Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deleted     Boolean      @default(false)
 }

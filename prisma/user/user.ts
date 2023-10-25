@@ -16,9 +16,7 @@ export const getUser = async (email: string) => {
 
 // CREATE
 export const createUser = async (data: User) => {
-  const user = await prisma.user.create({
-    data,
-  });
+  const user = await prisma.user.create({ data });
   return user;
 };
 
@@ -37,12 +35,10 @@ export const updateUser = async (email: string, updateData: User) => {
 
 // DELETE
 export const deleteUser = async (email: string) => {
-  console.log(email);
   const user = await prisma.user.delete({
     where: {
       email,
     },
   });
-  console.log(user);
   return user;
 };
