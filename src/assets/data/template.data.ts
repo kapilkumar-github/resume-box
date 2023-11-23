@@ -1,3 +1,5 @@
+import { COMPONENT_NAME } from "@/packages/TemplateBuilder/components/const";
+
 export const TORONTO = {
   name: "Toronto",
   id: 1,
@@ -5,28 +7,34 @@ export const TORONTO = {
     {
       columns: [
         {
-          styles: { width: "30%" },
+          props: { xs: 4 },
+          styles: { backgroundColor: "#003D73" },
           rows: [
             {
+              styles: { padding: "20px" },
               columns: [
                 {
-                  styles: { width: "100%" },
+                  props: { xs: 12 },
+                  styles: {},
                   rows: [
                     {
                       columns: [
                         {
-                          component: "Avatar",
+                          props: { xs: 12 },
+                          component: COMPONENT_NAME.AVATAR,
                           styles: {},
                         },
                         {
-                          component: "Text",
+                          props: { xs: 12 },
+                          component: COMPONENT_NAME.TYPOGRAPHY,
                           dataKey: "NAME",
                           styles: {
                             fontSize: 32,
                           },
                         },
                         {
-                          component: "Text",
+                          props: { xs: 12 },
+                          component: COMPONENT_NAME.TYPOGRAPHY,
                           dataKey: "DESIGNATION",
                           styles: {
                             fontSize: 16,
@@ -41,7 +49,8 @@ export const TORONTO = {
           ],
         },
         {
-          styles: { width: "70%" },
+          props: { xs: 8 },
+          styles: {},
           rows: [
             {
               columns: [],
