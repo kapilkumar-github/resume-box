@@ -1,9 +1,9 @@
-import { TemplateData } from "@/assets/data/template.data";
+import { TORONTO } from "@/assets/data/template.data";
 import TemplateBuilder from "@/packages/TemplateBuilder";
 import React from "react";
 
 const Dashboard = () => {
-  return <TemplateBuilder templateJSON={TemplateData} />;
+  return <TemplateBuilder templateJSON={TORONTO} />;
 };
 
 export default Dashboard;
