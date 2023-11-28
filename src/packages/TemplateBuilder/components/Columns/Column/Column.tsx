@@ -1,17 +1,13 @@
 import { Grid } from "@mui/material";
 import { ColumnProps } from "./Column.type";
 import Rows from "../../Rows/Rows";
-import { COMPONENT_NAME } from "../../const";
+import COMPONENTS from '../../index';
 
 const Column = ({ column }: ColumnProps) => {
   const renderColumnItems = () => {
-    switch (column.component) {
-      case COMPONENT_NAME.AVATAR:
-        return "Avatar";
-      case COMPONENT_NAME.TYPOGRAPHY:
-        return "Text";
-      default:
-        return "column";
+    if (column.component) {
+      const Component = (COMPONENTS as any)[column.component]
+      return <Component />;
     }
   };
 

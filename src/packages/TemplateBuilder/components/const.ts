@@ -1,4 +1,4 @@
 export const COMPONENT_NAME = {
-  TYPOGRAPHY: "Typography",
+  TEXT: "Text",
   AVATAR: "Avatar",
 };

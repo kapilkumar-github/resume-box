@@ -1,11 +1,20 @@
 "use client";
 
+import StoreProvider from "@/redux/StoreProvider";
 import { SessionProvider } from "next-auth/react";
 
 type Props = {
     children?: React.ReactNode;
 };
 
-export const NextAuthProvider = ({ children }: Props) => {
-    return <SessionProvider>{children}</SessionProvider>;
+const NextAuthProvider = ({ children }: Props) => {
+    return <SessionProvider>{children}</SessionProvider>
+};
+
+export const Providers = ({ children }: Props) => {
+    return <NextAuthProvider>
+        <StoreProvider>
+            {children}
+        </StoreProvider>
+    </NextAuthProvider>
 };

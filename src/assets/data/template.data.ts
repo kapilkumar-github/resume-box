@@ -1,6 +1,25 @@
 import { COMPONENT_NAME } from "@/packages/TemplateBuilder/components/const";
 
-export const TORONTO = {
+export type TemplateColumnType = {
+  component?: string;
+  props?: any;
+  styles?: React.CSSProperties;
+  rows?: TemplateRowType[];
+  dataKey?: string;
+};
+
+export type TemplateRowType = {
+  styles?: React.CSSProperties;
+  columns: TemplateColumnType[];
+};
+
+export type TemplateJSONType = {
+  name: string;
+  id: 1;
+  rows: TemplateRowType[];
+};
+
+export const TORONTO: TemplateJSONType = {
   name: "Toronto",
   id: 1,
   rows: [
@@ -26,16 +45,16 @@ export const TORONTO = {
                         },
                         {
                           props: { xs: 12 },
-                          component: COMPONENT_NAME.TYPOGRAPHY,
-                          dataKey: "NAME",
+                          component: COMPONENT_NAME.TEXT,
+                          dataKey: "name",
                           styles: {
                             fontSize: 32,
                           },
                         },
                         {
                           props: { xs: 12 },
-                          component: COMPONENT_NAME.TYPOGRAPHY,
-                          dataKey: "DESIGNATION",
+                          component: COMPONENT_NAME.TEXT,
+                          dataKey: "designation",
                           styles: {
                             fontSize: 16,
                           },
