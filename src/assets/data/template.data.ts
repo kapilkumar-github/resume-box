@@ -6,6 +6,9 @@ export type TemplateColumnType = {
   styles?: React.CSSProperties;
   rows?: TemplateRowType[];
   dataKey?: string;
+  data?: {
+    label: string;
+  };
 };
 
 export type TemplateRowType = {
@@ -19,64 +22,130 @@ export type TemplateJSONType = {
   rows: TemplateRowType[];
 };
 
+const leftColumnRowA = {
+  styles: { padding: "20px" },
+  columns: [
+    {
+      props: { xs: 12 },
+      styles: {
+        color: "#66778F",
+      },
+      rows: [
+        {
+          columns: [
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.AVATAR,
+              styles: {},
+            },
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              dataKey: "name",
+              styles: {
+                fontSize: 36,
+                fontWeight: 700,
+                lineHeight: 1,
+              },
+            },
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              dataKey: "designation",
+              styles: {
+                fontSize: 18,
+                marginTop: "5px",
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const leftColumnSectionHeading = {
+  color: "#fff",
+  background: "#00315C",
+  fontSize: 24,
+  fontWeight: 700,
+  paddingLeft: "10px",
+};
+
+const leftColumnRowB = {
+  columns: [
+    {
+      props: { xs: 12 },
+      styles: {},
+      rows: [
+        {
+          columns: [
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              data: {
+                label: "Contact",
+              },
+              styles: leftColumnSectionHeading,
+            },
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              data: {
+                label: "Address",
+              },
+              styles: {
+                paddingLeft: "10px",
+                marginTop: "10px",
+                fontWeight: 700,
+              },
+            },
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              dataKey: "address",
+              styles: {
+                paddingLeft: "10px",
+                marginTop: "3px",
+              },
+            },
+            {
+              props: { xs: 12 },
+              component: COMPONENT_NAME.TEXT,
+              data: {
+                label: "Skills",
+              },
+              styles: leftColumnSectionHeading,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const leftColumn = {
+  props: { xs: 4 },
+  styles: { backgroundColor: "#003D73", color: "#66778F" },
+  rows: [leftColumnRowA, leftColumnRowB],
+};
+
+const rightColumn = {
+  props: { xs: 8 },
+  styles: {},
+  rows: [
+    {
+      columns: [],
+    },
+  ],
+};
+
 export const TORONTO: TemplateJSONType = {
   name: "Toronto",
   id: 1,
   rows: [
     {
-      columns: [
-        {
-          props: { xs: 4 },
-          styles: { backgroundColor: "#003D73" },
-          rows: [
-            {
-              styles: { padding: "20px" },
-              columns: [
-                {
-                  props: { xs: 12 },
-                  styles: {},
-                  rows: [
-                    {
-                      columns: [
-                        {
-                          props: { xs: 12 },
-                          component: COMPONENT_NAME.AVATAR,
-                          styles: {},
-                        },
-                        {
-                          props: { xs: 12 },
-                          component: COMPONENT_NAME.TEXT,
-                          dataKey: "name",
-                          styles: {
-                            fontSize: 32,
-                          },
-                        },
-                        {
-                          props: { xs: 12 },
-                          component: COMPONENT_NAME.TEXT,
-                          dataKey: "designation",
-                          styles: {
-                            fontSize: 16,
-                          },
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          props: { xs: 8 },
-          styles: {},
-          rows: [
-            {
-              columns: [],
-            },
-          ],
-        },
-      ],
+      columns: [leftColumn, rightColumn],
     },
   ],
 };

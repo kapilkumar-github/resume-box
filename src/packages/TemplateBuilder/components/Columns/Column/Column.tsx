@@ -7,7 +7,7 @@ const Column = ({ column }: ColumnProps) => {
   const renderColumnItems = () => {
     if (column.component) {
       const Component = (COMPONENTS as any)[column.component]
-      return <Component />;
+      return <Component templateNode={column} />;
     }
   };
 
