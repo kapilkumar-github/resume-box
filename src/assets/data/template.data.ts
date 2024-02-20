@@ -103,7 +103,25 @@ const leftColumnRowB = {
             {
               props: { xs: 12 },
               component: COMPONENT_NAME.TEXT,
-              dataKey: "address",
+              dataKey: "address.line1",
+              styles: {
+                paddingLeft: "10px",
+                marginTop: "3px",
+              },
+            },
+            {
+              props: { xs: 2 },
+              component: COMPONENT_NAME.TEXT,
+              dataKey: "address.city",
+              styles: {
+                paddingLeft: "10px",
+                marginTop: "3px",
+              },
+            },
+            {
+              props: { xs: 6 },
+              component: COMPONENT_NAME.TEXT,
+              dataKey: "address.country",
               styles: {
                 paddingLeft: "10px",
                 marginTop: "3px",
