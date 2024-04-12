@@ -4,7 +4,7 @@ export const SwiftTemplateWrapper = styled(Box)(() => ({
 }))
 
 type SwiftSectionWrapperType = {
-    flexDirection: ''
+    flexDirection?: ''
 }
 
 export const SwiftSectionWrapper = styled(Stack)<SwiftSectionWrapperType>(({ flexDirection }) => ({

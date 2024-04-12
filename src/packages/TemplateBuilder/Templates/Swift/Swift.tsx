@@ -4,6 +4,8 @@ import { useAppSelector } from "@/redux/hooks";
 import { Links, SwiftProfileSection } from "./Sections";
 import SwiftSkillsSection from "./Sections/Skills";
 import SwiftEmploymentSection from "./Sections/Employment/SwiftEmploymentSection";
+import SwiftEducationSection from "./Sections/Education";
+import SwiftHobbiesSection from "./Sections/Hobbies";
 
 const Swift = () => {
   const { resumeData } = useAppSelector(store => store.ResumeReducer);
@@ -31,6 +33,14 @@ const Swift = () => {
 
       <SwiftSectionWrapper flexDirection={'column'}>
         <SwiftEmploymentSection />
+      </SwiftSectionWrapper>
+
+      <SwiftSectionWrapper flexDirection={'column'}>
+        <SwiftEducationSection />
+      </SwiftSectionWrapper>
+
+      <SwiftSectionWrapper >
+        <SwiftHobbiesSection />
       </SwiftSectionWrapper>
     </SwiftTemplateWrapper>
   );

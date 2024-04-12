@@ -22,7 +22,33 @@ export type ResumeDataType = {
     }[];
     [key: string]: undefined | string | {};
   };
+  work: {
+    organization: string;
+    position: string;
+    url: string;
+    startDate: string;
+    endDate?: string;
+    summary: string;
+    highlights: string[];
+    location: string;
+    current: boolean;
+  }[];
   skills: { name: string; level: string; keywords: string[] }[];
+  education?: {
+    institution: string;
+    url: string;
+    area: string;
+    studyType: string;
+    startDate: string;
+    endDate?: string;
+    score: string;
+    courses: string[];
+    location: string;
+  }[];
+  interests?: {
+    name: string;
+    keywords: string[];
+  }[];
   [key: string]: undefined | string | {} | [];
 };
 
@@ -70,13 +96,19 @@ export const ResumeData: ResumeDataType = {
   },
   work: [
     {
-      name: "Company",
-      position: "President",
+      organization: "HiLabs",
+      position: "Senior Software Developer",
       url: "https://company.com",
       startDate: "2013-01-01",
-      endDate: "2014-01-01",
-      summary: "Description…",
+      current: true,
+      summary: `<p>
+      <span style="font-family: Helvetica;"><span style="background-color: rgb(244, 244, 244);">Developed and maintained scalable web applications using modern frontend and backend technologies. Collaborated with cross-functional teams to gather and analyze requirements, and translate them into technical solutions. Implemented new features and enhancements, ensuring code quality, performance, and security best practices. <span style="font-weight: bold;">Conducted code reviews</span> to ensure adherence to coding standards and best practices. <br />
+      <br />
+      Worked closely with UX/UI designers to implement responsive and user-friendly interfaces. Utilized version control systems (e.g., Git) for code management and collaboration. Participated in Agile/Scrum methodologies for project planning, estimation, and execution. Troubleshooted and resolved technical issues in a timely manner to minimize downtime. Provided technical guidance and mentorship to junior developers.</span>
+      <br />
+      </span></p>`,
       highlights: ["Started the company"],
+      location: "Bengaluru",
     },
   ],
   volunteer: [
@@ -92,14 +124,15 @@ export const ResumeData: ResumeDataType = {
   ],
   education: [
     {
-      institution: "University",
+      institution: "ITM University",
       url: "https://institution.com/",
       area: "Software Development",
-      studyType: "Bachelor",
-      startDate: "2011-01-01",
-      endDate: "2013-01-01",
+      studyType: "Bachelor of Engineering",
+      startDate: "2012-09-10",
+      endDate: "2016-05-15",
       score: "4.0",
-      courses: ["DB1101 - Basic SQL"],
+      courses: ["Computer Science"],
+      location: "Gwalior",
     },
   ],
   awards: [
@@ -167,8 +200,16 @@ export const ResumeData: ResumeDataType = {
   ],
   interests: [
     {
-      name: "Wildlife",
-      keywords: ["Ferrets", "Unicorns"],
+      name: "Open Source Contributions",
+      keywords: ["Community Building", "Building Features"],
+    },
+    {
+      name: "Personal Coding Projects",
+      keywords: ["Weekend Projects", "Coding"],
+    },
+    {
+      name: "Dota 2",
+      keywords: ["MOBA", "Gaming"],
     },
   ],
   references: [
