@@ -1,17 +1,13 @@
-import { Box, Stack, StackProps, Typography, styled } from '@mui/material'
+import { Box, Stack, Typography, styled } from '@mui/material'
 export const SwiftTemplateWrapper = styled(Box)(() => ({
     padding: '0.25cm 0.50cm'
 }))
 
-type SwiftSectionWrapperType = {
-    flexDirection?: ''
-}
-
-export const SwiftSectionWrapper = styled(Stack)<SwiftSectionWrapperType>(({ flexDirection }) => ({
+export const SwiftSectionWrapper = styled(Stack)(() => ({
     paddingTop: '0.15cm',
     marginTop: '0.5cm',
     borderTop: '0.05cm solid #000',
-    flexDirection: flexDirection || 'row',
+    flexDirection: 'row',
     alignItems: 'start'
 }))
 

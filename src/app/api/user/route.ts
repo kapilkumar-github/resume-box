@@ -4,7 +4,7 @@ import {
   getAllUsers,
   getUser,
   updateUser,
-} from "../../../../prisma/user/user";
+} from "../../../lib/db/user/user";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

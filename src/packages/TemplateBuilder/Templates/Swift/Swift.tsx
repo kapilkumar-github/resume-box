@@ -31,11 +31,11 @@ const Swift = () => {
         <SwiftSkillsSection />
       </SwiftSectionWrapper>
 
-      <SwiftSectionWrapper flexDirection={'column'}>
+      <SwiftSectionWrapper sx={{ flexDirection: 'column' }}>
         <SwiftEmploymentSection />
       </SwiftSectionWrapper>
 
-      <SwiftSectionWrapper flexDirection={'column'}>
+      <SwiftSectionWrapper sx={{ flexDirection: 'column' }}>
         <SwiftEducationSection />
       </SwiftSectionWrapper>
 
